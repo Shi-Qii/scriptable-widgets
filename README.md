@@ -1,21 +1,48 @@
-# 手機日曆小工具 for iPhone
+# 📱 iPhone 日曆小工具
 
-免費的 iPhone 主畫面小工具，用 [Scriptable](https://apps.apple.com/app/scriptable/id1405459188) 製作。
-每個版本都支援小、中、大三種尺寸。
+免費的 iPhone 主畫面小工具，12 種風格，每個都支援小、中、大三種尺寸。
 
-## 安裝
+## 3 步驟安裝
 
-1. App Store 下載 **Scriptable**（免費）
-2. 打開 Scriptable，右上角 **＋** 新增腳本，貼上 [`installer.js`](installer.js) 的內容
-3. 按右下角 ▶ 執行，選擇想要的版本，會自動建立好
-4. 回主畫面長按空白處，點左上角 **＋**，找到 Scriptable，選尺寸加入
-5. 長按小工具，點「編輯小工具」，Script 選剛剛安裝的版本
+**1. 下載 [Scriptable](https://apps.apple.com/app/scriptable/id1405459188)**（免費）
 
-想換版本或拿到更新：再執行一次安裝器就好。
+**2. 複製下面的安裝碼** 👇 點程式碼框右上角的複製按鈕
+
+```js
+const REPO = "Shi-Qii/scriptable-widgets";
+const R = `https://raw.githubusercontent.com/${REPO}/main/`;
+const list = await new Request(R + "widgets.json").loadJSON();
+const a = new Alert();
+a.title = "要安裝哪一個？";
+list.forEach(x => a.addAction(x.name));
+a.addCancelAction("取消");
+const i = await a.presentSheet();
+if (i >= 0) {
+  const x = list[i];
+  const code = await new Request(R + x.file).loadString();
+  const fm = FileManager[module.filename.includes("Mobile Documents") ? "iCloud" : "local"]();
+  const dir = module.filename.replace(/\/[^\/]*$/, "");
+  fm.writeString(`${dir}/${x.name}.js`, code);
+  const d = new Alert();
+  d.title = "安裝完成 🎉";
+  d.message = `「${x.name}」已加入，回主畫面長按新增小工具，Script 選它就好`;
+  d.addAction("好");
+  await d.present();
+}
+```
+
+打開 Scriptable，按右上角 **＋**，長按貼上，按右下角 **▶**，選喜歡的風格。
+
+**3. 加到主畫面**
+
+主畫面長按空白處 → 左上角 **＋** → 找 Scriptable → 選大小加入。
+長按小工具 →「編輯小工具」→ Script 選剛剛裝的。
+
+> 想換風格或拿更新：回 Scriptable 再執行一次安裝器就好。
 
 ## 有哪些
 
-| 版本 | 說明 |
+| 風格 | 說明 |
 |---|---|
 | K 下班倒數・黑底終端機 | 黑底螢光字，終端機風格的下班倒數 |
 | J 下班倒數・工程師版 | 藍色系終端機風格，狀態碼和 commit message |
@@ -32,13 +59,14 @@
 
 ## 自訂
 
-- **下班倒數系列**：打開腳本，開頭幾行可以改上下班時間、午休時間和發薪日
-- **D 今日運勢、F 今日人設**：長按小工具，點「編輯小工具」，Parameter 填你的名字，每個人抽到的會不一樣
+- **下班倒數系列**：打開腳本，開頭幾行可以改上下班時間、午休時間和發薪日（預設 10:00–18:00）
+- **今日運勢、今日人設**：「編輯小工具」的 Parameter 填名字，每個人抽到的不一樣
 - **句子、宜忌等內容**：都在腳本最上面的清單，自己增減就好
 
 ## 注意
 
-- 用安裝器重新安裝同一個版本，會覆蓋你自己改過的內容，改之前可以先複製一份
+- 重新安裝同一個風格會覆蓋你改過的內容，改之前可以先複製一份
 - 旅行曆的照片與介紹來自維基百科，依 CC BY-SA 授權使用
+- 老虎機風格純屬娛樂，沒有任何下注或真錢
 
 免費分享，歡迎自己改著玩。
