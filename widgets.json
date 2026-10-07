@@ -1,0 +1,62 @@
+[
+  {
+    "name": "K 下班倒數・黑底終端機",
+    "file": "widgets/K_offwork_terminal.js",
+    "desc": "黑底螢光字，終端機風格的下班倒數"
+  },
+  {
+    "name": "J 下班倒數・工程師版",
+    "file": "widgets/J_offwork_dev.js",
+    "desc": "藍色系終端機風格，狀態碼和 commit message"
+  },
+  {
+    "name": "I 下班倒數・特賣版",
+    "file": "widgets/I_offwork_sale.js",
+    "desc": "把下班做成限時特賣，一天換六種配色"
+  },
+  {
+    "name": "L 下班爆分機",
+    "file": "widgets/L_slot.js",
+    "desc": "老虎機風格，下班就是你的 Free Game"
+  },
+  {
+    "name": "E 下班倒數・簡約版",
+    "file": "widgets/E_offwork.js",
+    "desc": "深藍簡約，倒數、週末和發薪日"
+  },
+  {
+    "name": "F 今日人設",
+    "file": "widgets/F_persona.js",
+    "desc": "每天抽一張角色卡，有 SSR！"
+  },
+  {
+    "name": "D 今日運勢",
+    "file": "widgets/D_fortune.js",
+    "desc": "籤等、四種運勢、幸運食物"
+  },
+  {
+    "name": "B 撕頁黃曆",
+    "file": "widgets/B_almanac.js",
+    "desc": "紅色撕頁日曆，每天的宜與忌"
+  },
+  {
+    "name": "A 厭世一句",
+    "file": "widgets/A_gloom.js",
+    "desc": "每天一句厭世幹話"
+  },
+  {
+    "name": "C 英文一句",
+    "file": "widgets/C_english.js",
+    "desc": "英文句子、中文翻譯、今日單字"
+  },
+  {
+    "name": "H 旅行曆",
+    "file": "widgets/H_travel.js",
+    "desc": "每天一個世界景點，照片自動更新"
+  },
+  {
+    "name": "G 今年進度",
+    "file": "widgets/G_year.js",
+    "desc": "一年 365 個點，看今年過了多少"
+  }
+]
